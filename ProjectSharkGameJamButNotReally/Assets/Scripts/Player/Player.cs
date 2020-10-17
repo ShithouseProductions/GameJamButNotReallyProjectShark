@@ -10,6 +10,9 @@ public class Player : MonoBehaviour
     private float velX;
     private float velY;
 
+    private float scaleX = 1;
+    private float scaleY = 1;
+
     Rigidbody2D rb;
 
     void Start()
@@ -22,7 +25,26 @@ public class Player : MonoBehaviour
     {
         velX = Input.GetAxisRaw("Horizontal");
         velY = Input.GetAxisRaw("Vertical");
-        print(velX);
+
+
+        if (velY > 0)
+        {
+            scaleY = 1;
+        } else if (velY < 0){
+            scaleY = -1;
+        }
+
+        if (velX > 0)
+        {
+            scaleX = -1;
+        } else if (velX < 0){
+            scaleX = 1;
+        } else {
+            scaleX = 0;
+        }
+
+        transform.localScale = new Vector2(1, scaleY);
+        transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, scaleX * 90);
 
         rb.velocity = new Vector2(velX * Velocity, velY * Velocity);
     }
