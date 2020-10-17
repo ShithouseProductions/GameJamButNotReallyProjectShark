@@ -16,12 +16,15 @@ public class Enemy : MonoBehaviour
     private GameObject player;
     private Rigidbody2D rb;
     private GameObject manager;
+    private GameObject attackRadius;
 
     void Start()
     {
         player = GameObject.Find("Player");
         rb = GetComponent<Rigidbody2D>();
         manager = GameObject.Find("Manager");
+
+        attackRadius = transform.GetChild(0).gameObject;
     }
 
     
@@ -32,9 +35,21 @@ public class Enemy : MonoBehaviour
             deltaX = player.transform.position.x - transform.position.x;
             deltaY = player.transform.position.y - transform.position.y;
 
+            float sd = 1.5f;   //stopDistance
+            
+            float angle = Mathf.Atan2(deltaY, deltaX) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle - 90));
 
-            transform.position = Vector2.MoveTowards(transform.position, player.transform.position, velocity * Time.deltaTime);
+            if(deltaX > sd || deltaX < -sd || deltaY > sd || deltaY < -sd)
+            {
+                GetComponent<Animator>().SetBool("isMoving", true);
+                transform.position = Vector2.MoveTowards(transform.position, player.transform.position, velocity * Time.deltaTime);
+            } else {
+                GetComponent<Animator>().SetBool("isMoving", false);
+                attackRadius.GetComponent<Attack>().DoAttack();
+            }
 
+            
         }
 
         
