@@ -1,5 +1,24 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!95 &1047382264145151257
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4288785353422876036}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e4a362e694f175c4b8295f05f3b60cf5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &1049839348856822984
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -62,10 +81,23 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3824986398067110210, guid: fd16e97dc1e526447b0102c607fef07c,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -6842238349400188625, guid: 3a7d8017a34f6c84085f2d505e35cc51,
+        type: 3}
     - target: {fileID: 3824986398067110220, guid: fd16e97dc1e526447b0102c607fef07c,
         type: 3}
       propertyPath: m_Name
       value: Worm
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1959181086, guid: fd16e97dc1e526447b0102c607fef07c, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: fd16e97dc1e526447b0102c607fef07c, type: 3}
+--- !u!1 &4288785353422876036 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3824986398067110220, guid: fd16e97dc1e526447b0102c607fef07c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1049839348856822984}
+  m_PrefabAsset: {fileID: 0}
