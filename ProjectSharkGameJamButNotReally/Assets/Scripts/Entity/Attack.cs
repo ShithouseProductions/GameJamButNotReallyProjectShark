@@ -33,6 +33,7 @@ public class Attack : MonoBehaviour
             if(curAttackTimer <= 0)
             {
                 attacked = false;
+                transform.parent.GetComponent<Animator>().SetBool("isAttack", false);
                 GetComponent<BoxCollider2D>().enabled = false;
                 curAttackDelay = attackDelay;
                 curAttackTimer = 0;
@@ -50,6 +51,7 @@ public class Attack : MonoBehaviour
     {
         if(curAttackTimer <= 0 && curAttackDelay <= 0)
         {
+            transform.parent.GetComponent<Animator>().SetBool("isAttack", true);
             GetComponent<BoxCollider2D>().enabled = true;
             attacked = true;
             curAttackTimer = attackTimer;
