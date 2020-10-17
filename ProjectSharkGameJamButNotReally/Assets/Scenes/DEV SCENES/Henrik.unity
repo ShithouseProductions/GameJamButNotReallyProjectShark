@@ -303,6 +303,33 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba533f9547d7d4f48bfc99c3946f665c, type: 3}
+--- !u!1 &745941607 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8675283690152704351, guid: a01335f8efd0e244ebfa6ed263a82d1b,
+    type: 3}
+  m_PrefabInstance: {fileID: 8675283689682015032}
+  m_PrefabAsset: {fileID: 0}
+--- !u!50 &745941608
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 745941607}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1001 &1816977656
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -966,6 +993,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aad7479b1bea94940ba64ccfbc016f2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPlayer: 0
 --- !u!1001 &8675283689682015032
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1027,6 +1055,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8675283690152704340, guid: a01335f8efd0e244ebfa6ed263a82d1b,
+        type: 3}
+      propertyPath: velocity
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 8675283690152704351, guid: a01335f8efd0e244ebfa6ed263a82d1b,
         type: 3}
