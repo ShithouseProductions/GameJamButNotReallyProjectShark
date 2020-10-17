@@ -8,7 +8,7 @@ public class Health : MonoBehaviour
     public int maxHealth;
 
     [Header("Tools")]
-    public int curHealth;
+    private int curHealth;
     private int armor;
     
 
@@ -36,6 +36,17 @@ public class Health : MonoBehaviour
             // Lose
         } else {
             // Update health UI
+        }
+    }
+
+
+    public void Heal(int hp)
+    {
+        curHealth += hp;
+
+        if(curHealth > maxHealth)
+        {
+            curHealth = maxHealth;
         }
     }
 }
