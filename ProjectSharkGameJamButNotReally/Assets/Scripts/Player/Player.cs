@@ -10,8 +10,9 @@ public class Player : MonoBehaviour
     private float velX;
     private float velY;
 
-    private float scaleX = 1;
+    private float scaleX = 0;
     private float scaleY = 1;
+    private float ScaleDual = 0;
 
     Rigidbody2D rb;
 
@@ -39,12 +40,22 @@ public class Player : MonoBehaviour
             scaleX = -1;
         } else if (velX < 0){
             scaleX = 1;
-        } else {
+        } else if (velY != 0){
             scaleX = 0;
         }
 
+        if((velX > 0 && velY > 0) || (velX < 0 && velY < 0))
+        {
+            ScaleDual = 45;
+        } else if ((velX > 0 && velY < 0) || (velX < 0 && velY > 0))
+        {
+            ScaleDual = -45;
+        } else {
+            ScaleDual = 0;
+        }
+
         transform.localScale = new Vector2(1, scaleY);
-        transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, scaleX * 90);
+        transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, scaleX * 90 * scaleY + ScaleDual);
 
         rb.velocity = new Vector2(velX * Velocity, velY * Velocity);
     }
