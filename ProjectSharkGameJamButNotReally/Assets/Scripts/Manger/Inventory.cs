@@ -7,7 +7,7 @@ public class Inventory : MonoBehaviour
 {
 
     [Header("Tools")]
-    [HideInInspector] public bool inventoryVisisble = false;
+    [HideInInspector] public bool inventoryVisible = false;
 
 
     [Header("GameObjects")]
@@ -24,14 +24,16 @@ public class Inventory : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.I))
         {
-            if(inventoryVisisble)
+            if(inventoryVisible)
             {
                 invGO.SetActive(false);
+                GetComponent<GameController>().isPaused = false;
             } else {
-                invGO.SetActive(true);            
+                invGO.SetActive(true);
+                GetComponent<GameController>().isPaused = true;
             }
 
-            inventoryVisisble = !inventoryVisisble;
+            inventoryVisible = !inventoryVisible;
         }
     }
 }

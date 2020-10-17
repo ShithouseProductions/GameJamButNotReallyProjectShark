@@ -18,17 +18,19 @@ public class Player : MonoBehaviour
     [Header("GameObjects")]
     private Rigidbody2D rb;
     private GameObject manager;
+    private GameObject attackRadius;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         manager = GameObject.Find("Manager");
+        attackRadius = transform.GetChild(0).gameObject;
     }
 
 
     void FixedUpdate()
     {
-        if (!manager.GetComponent<Inventory>().inventoryVisisble)
+        if (!manager.GetComponent<GameController>().isPaused)
         {
             velX = Input.GetAxisRaw("Horizontal");
             velY = Input.GetAxisRaw("Vertical");
@@ -71,15 +73,24 @@ public class Player : MonoBehaviour
             transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, scaleX * 90 * scaleY + ScaleDual);
 
             rb.velocity = new Vector2(velX * Velocity, velY * Velocity);
+
         } else {
             rb.velocity = new Vector2(0, 0);
             GetComponent<Animator>().SetBool("isMoving", false);
-        }
-        
+        }      
     }
 
     void Update()
     {
-        
+        if(!manager.GetComponent<GameController>().isPaused)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                attackRadius.GetComponent<Attack>().DoAttack();
+            }
+        }
+
     }
+
+
 }
