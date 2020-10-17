@@ -7,8 +7,8 @@ public class Player : MonoBehaviour
 
     [Header("Movement")]
     public float Velocity;
-    private float velX;
-    private float velY;
+    [HideInInspector] public float velX;
+    [HideInInspector] public float velY;
 
     private float scaleX = 0;
     private float scaleY = 1;
