@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
     private float velX;
     private float velY;
 
-    private float scaleX = 1;
+    private float scaleX = 0;
     private float scaleY = 1;
     private float ScaleDual = 0;
 
