@@ -230,17 +230,17 @@ PrefabInstance:
     - target: {fileID: 7492819489896330837, guid: 54fef89a8da12bd42afbfccd2e589347,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.9844565
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7492819489896330837, guid: 54fef89a8da12bd42afbfccd2e589347,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.785178
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7492819489896330837, guid: 54fef89a8da12bd42afbfccd2e589347,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 63.573498
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7492819489896330837, guid: 54fef89a8da12bd42afbfccd2e589347,
         type: 3}
@@ -1145,6 +1145,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Spider
+      objectReference: {fileID: 0}
+    - target: {fileID: 3824986398067110220, guid: fd16e97dc1e526447b0102c607fef07c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd16e97dc1e526447b0102c607fef07c, type: 3}

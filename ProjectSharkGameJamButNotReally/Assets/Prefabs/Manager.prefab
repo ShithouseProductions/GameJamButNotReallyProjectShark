@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 84704098335201685}
   - component: {fileID: 8091721883622396927}
   - component: {fileID: 1663396003}
+  - component: {fileID: 1663396000}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -155,3 +156,45 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1663396000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 590706887035502450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a37b929a3450cfe4f86a078483847c90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  helmetList:
+  - itemName: Iron Helmet
+    sprite: {fileID: 21300000, guid: 4ac469036aa7a3a459dbc546b9b0048e, type: 3}
+    price: 30
+    valueOne: 2
+    valueTwo: 0
+  chestList:
+  - itemName: Iron Chestplate
+    sprite: {fileID: 21300000, guid: e63b9fa6402397448a8e92681c6c59d8, type: 3}
+    price: 35
+    valueOne: 3
+    valueTwo: 0
+  legList:
+  - itemName: Iron Leggings
+    sprite: {fileID: 21300000, guid: bbff1b2c6f544da48aff98b913acef05, type: 3}
+    price: 25
+    valueOne: 2
+    valueTwo: 0
+  weaponList:
+  - itemName: Iron Sword
+    sprite: {fileID: 21300000, guid: b3399c4fe223b7544a4527c3760ef9a7, type: 3}
+    price: 40
+    valueOne: 1
+    valueTwo: 0
+  potionList:
+  - itemName: Health Potion
+    sprite: {fileID: 21300000, guid: eaf366cdfdb33dd4ebb36d0830eb6846, type: 3}
+    price: 10
+    valueOne: 3
+    valueTwo: 0

@@ -10,6 +10,12 @@ public class Inventory : MonoBehaviour
     [HideInInspector] public bool inventoryVisible = false;
 
 
+    [Header("Inventory")]
+    private Item[] inv = new Item[18];
+    private Item[] armor = new Item[3];
+    private Item[] extra = new Item[3];
+
+
     [Header("GameObjects")]
     private GameObject invGO;
     
