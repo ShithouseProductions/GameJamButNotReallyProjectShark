@@ -54,6 +54,9 @@ public class Player : MonoBehaviour
             ScaleDual = 0;
         }
 
+        GetComponent<Animator>().SetFloat("velX", velX);
+        GetComponent<Animator>().SetFloat("velY", velY);
+
         transform.localScale = new Vector2(1, scaleY);
         transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, scaleX * 90 * scaleY + ScaleDual);
 
