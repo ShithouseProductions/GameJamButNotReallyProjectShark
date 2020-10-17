@@ -50,6 +50,7 @@ public class Health : MonoBehaviour
     }
 
 
+
     public void Damage(int dmg)
     {
         if(cooldown <= 0)
@@ -81,6 +82,12 @@ public class Health : MonoBehaviour
         }
 
         UpdateUI();
+    }
+
+
+    private void SetupUI()
+    {
+
     }
 
 
