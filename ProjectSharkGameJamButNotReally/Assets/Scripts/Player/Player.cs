@@ -39,12 +39,12 @@ public class Player : MonoBehaviour
             scaleX = -1;
         } else if (velX < 0){
             scaleX = 1;
-        } else {
+        } else if (velY != 0){
             scaleX = 0;
         }
 
         transform.localScale = new Vector2(1, scaleY);
-        transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, scaleX * 90);
+        transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, scaleX * 90 * scaleY);
 
         rb.velocity = new Vector2(velX * Velocity, velY * Velocity);
     }
