@@ -4,15 +4,25 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    // Start is called before the first frame update
+
+    [Header("Tools")]
+    private float deltaX;
+    private float deltaY;
+
+    [Header("GameObjects")]
+    private GameObject player;
+
     void Start()
     {
-        
+        player = GameObject.Find("Player");
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
+        deltaX = player.transform.position.x - transform.position.x;
+        deltaY = player.transform.position.y - transform.position.y;
+
         
     }
 }
