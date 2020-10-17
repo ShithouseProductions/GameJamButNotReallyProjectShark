@@ -97,12 +97,8 @@ public class Health : MonoBehaviour
 
             GameObject redbar = healthbar.transform.GetChild(0).gameObject;
 
-            print(perc);
-            //perc = 0.5f;
-
             redbar.transform.localScale = new Vector2(perc, 1);
             redbar.transform.localPosition = new Vector2((1-perc) * -0.08f, 0);
-
         }
     }
 

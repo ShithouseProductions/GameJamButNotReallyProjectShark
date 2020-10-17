@@ -7,11 +7,11 @@ public class DetectCollision : MonoBehaviour
 
 
     [Header("Tools")]
-    private bool isPlayer;
+    public bool isPlayer;
 
     void Start()
     {
-        if (this.gameObject == GameObject.Find("Player"))
+        if (transform.parent.gameObject == GameObject.Find("Player"))
         {
             isPlayer = true;
         }
@@ -30,7 +30,7 @@ public class DetectCollision : MonoBehaviour
             if (col.tag == "EnemyAttack")
             {
                 //col.getcomponent<stats>???
-                transform.parent.GetComponent<Health>().Damage(col.transform.transform.parent.GetChild(0).GetComponent<Attack>().damage);
+                transform.parent.GetComponent<Health>().Damage(col.transform.parent.GetChild(0).GetComponent<Attack>().damage);
             }
         }
 
@@ -43,5 +43,17 @@ public class DetectCollision : MonoBehaviour
             }
         }
 
+    }
+
+
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if(isPlayer)
+        {
+            if(col.tag == "Enemy")
+            {
+                transform.parent.GetComponent<Health>().Damage(col.transform.GetChild(0).GetComponent<Attack>().damage);
+            }
+        }
     }
 }
