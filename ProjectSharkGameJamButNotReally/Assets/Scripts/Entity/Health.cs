@@ -54,15 +54,16 @@ public class Health : MonoBehaviour
     {
         if(cooldown <= 0)
         {
-            cooldown = 1;
+            cooldown = 0.75f;
             print("Health.cs: health lost");
             // use armor to calculate blocked dmg
             curHealth -= dmg;
+            StartCoroutine(Flash());
 
             if(curHealth <= 0)
             {
                 curHealth = 0;
-                // Lose
+                Destroy(gameObject);
             }
 
             UpdateUI();
@@ -103,5 +104,17 @@ public class Health : MonoBehaviour
             redbar.transform.localPosition = new Vector2((1-perc) * -0.08f, 0);
 
         }
+    }
+
+
+    IEnumerator Flash()
+    {
+        GetComponent<SpriteRenderer>().color = Color.red;
+        yield return new WaitForSeconds(.15f);
+        GetComponent<SpriteRenderer>().color = Color.white;
+        yield return new WaitForSeconds(.15f);
+        GetComponent<SpriteRenderer>().color = Color.red;
+        yield return new WaitForSeconds(.15f);
+        GetComponent<SpriteRenderer>().color = Color.white;
     }
 }
