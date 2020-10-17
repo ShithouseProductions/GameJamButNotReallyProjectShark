@@ -70,7 +70,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b8444607d51b8c4e8d5c72e7e3e0357, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 0
+  damage: 1
   attacked: 0
   curAttackTimer: 0
   curAttackDelay: 0
