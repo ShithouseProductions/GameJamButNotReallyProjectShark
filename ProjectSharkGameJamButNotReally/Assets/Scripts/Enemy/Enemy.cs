@@ -36,14 +36,18 @@ public class Enemy : MonoBehaviour
             deltaY = player.transform.position.y - transform.position.y;
 
             float sd = 1.5f;   //stopDistance
-            
-            float angle = Mathf.Atan2(deltaY, deltaX) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle - 90));
 
             if(deltaX > sd || deltaX < -sd || deltaY > sd || deltaY < -sd)
             {
-                GetComponent<Animator>().SetBool("isMoving", true);
-                transform.position = Vector2.MoveTowards(transform.position, player.transform.position, velocity * Time.deltaTime);
+                if(!attackRadius.GetComponent<Attack>().wait)
+                {
+                    float angle = Mathf.Atan2(deltaY, deltaX) * Mathf.Rad2Deg;
+                    transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle - 90));
+
+                    GetComponent<Animator>().SetBool("isMoving", true);
+                    transform.position = Vector2.MoveTowards(transform.position, player.transform.position, velocity * Time.deltaTime);
+                }
+
             } else {
                 GetComponent<Animator>().SetBool("isMoving", false);
                 attackRadius.GetComponent<Attack>().DoAttack();

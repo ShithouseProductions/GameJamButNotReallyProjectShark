@@ -11,7 +11,8 @@ public class Attack : MonoBehaviour
 
     [Header("Attack")]
     public bool attacked;
-    private float attackTimer = 0.5f;
+    public bool wait;
+    private float attackTimer = 0.2f;
     private float attackDelay = 1f;
 
     public float curAttackTimer = 0;
@@ -32,10 +33,11 @@ public class Attack : MonoBehaviour
             curAttackTimer -= Time.deltaTime;
             if(curAttackTimer <= 0)
             {
+                curAttackDelay = attackDelay;
                 attacked = false;
                 transform.parent.GetComponent<Animator>().SetBool("isAttack", false);
                 GetComponent<BoxCollider2D>().enabled = false;
-                curAttackDelay = attackDelay;
+                
                 curAttackTimer = 0;
             }
         } 
@@ -43,18 +45,31 @@ public class Attack : MonoBehaviour
         if(curAttackDelay > 0)
         {
             curAttackDelay -= Time.deltaTime;
+            wait = false;
         }
     }
 
 
     public void DoAttack()
     {
-        if(curAttackTimer <= 0 && curAttackDelay <= 0)
+        if(curAttackTimer <= 0 && curAttackDelay <= 0 && !wait)
         {
-            transform.parent.GetComponent<Animator>().SetBool("isAttack", true);
-            GetComponent<BoxCollider2D>().enabled = true;
-            attacked = true;
-            curAttackTimer = attackTimer;
+            wait = true;
+            StartCoroutine(Attacker());
         }      
+    }
+
+
+    IEnumerator Attacker()
+    {
+        transform.parent.GetComponent<Animator>().SetBool("isAttack", true);
+        yield return new WaitForSeconds(.8f);
+        GetComponent<BoxCollider2D>().enabled = true;
+        attacked = true;
+        curAttackTimer = attackTimer;
+        yield return new WaitForSeconds(.1f);
+        transform.parent.GetComponent<Animator>().SetBool("isAttack", false);
+
+
     }
 }
