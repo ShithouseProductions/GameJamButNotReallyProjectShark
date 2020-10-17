@@ -71,7 +71,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  attackAnimDelay: 0
   attacked: 0
+  wait: 0
   curAttackTimer: 0
   curAttackDelay: 0
 --- !u!1 &2102648203
@@ -326,5 +328,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c67d353ee90f59546b7a5bce8d26586d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
+  maxHealth: 156
   curHealth: 0

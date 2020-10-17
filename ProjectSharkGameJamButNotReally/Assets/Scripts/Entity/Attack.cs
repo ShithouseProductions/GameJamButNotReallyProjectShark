@@ -7,6 +7,7 @@ public class Attack : MonoBehaviour
 
     [Header("Setup")]
     public int damage;
+    public float attackAnimDelay;
 
 
     [Header("Attack")]
@@ -63,13 +64,11 @@ public class Attack : MonoBehaviour
     IEnumerator Attacker()
     {
         transform.parent.GetComponent<Animator>().SetBool("isAttack", true);
-        yield return new WaitForSeconds(.8f);
+        yield return new WaitForSeconds(attackAnimDelay);
         GetComponent<BoxCollider2D>().enabled = true;
         attacked = true;
         curAttackTimer = attackTimer;
         yield return new WaitForSeconds(.1f);
         transform.parent.GetComponent<Animator>().SetBool("isAttack", false);
-
-
     }
 }
