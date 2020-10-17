@@ -29,7 +29,6 @@ public class DetectCollision : MonoBehaviour
         {
             if (col.tag == "EnemyAttack")
             {
-                //col.getcomponent<stats>???
                 transform.parent.GetComponent<Health>().Damage(col.transform.parent.GetChild(0).GetComponent<Attack>().damage);
             }
         }
@@ -38,7 +37,6 @@ public class DetectCollision : MonoBehaviour
         {
             if (col.transform.tag == "PlayerAttack")
             {
-                //col.getcomponent<stats>
                 transform.parent.GetComponent<Health>().Damage(col.transform.parent.GetChild(0).GetComponent<Attack>().damage);
             }
         }
@@ -53,6 +51,23 @@ public class DetectCollision : MonoBehaviour
             if(col.tag == "Enemy")
             {
                 transform.parent.GetComponent<Health>().Damage(col.transform.GetChild(0).GetComponent<Attack>().damage);
+            }
+
+            if(col.tag == "Item")
+            {
+                transform.parent.GetComponent<Player>().nearItem = col.gameObject;
+            }
+        }
+    }
+
+
+    private void OnTriggerExit2D(Collider2D col)
+    {
+        if(isPlayer)
+        {
+            if(col.tag == "Item")
+            {
+                transform.parent.GetComponent<Player>().nearItem = null;
             }
         }
     }

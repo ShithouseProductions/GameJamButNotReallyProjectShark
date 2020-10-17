@@ -51,6 +51,8 @@ public class Enemy : MonoBehaviour
                         GetComponent<Animator>().SetBool("isMoving", true);
                         transform.position = Vector2.MoveTowards(transform.position, player.transform.position, velocity * Time.deltaTime);
                     }
+                } else {
+                    GetComponent<Animator>().SetBool("isMoving", false);
                 }
 
 

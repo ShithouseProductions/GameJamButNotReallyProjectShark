@@ -14,14 +14,29 @@ public class ItemList : MonoBehaviour
     public Item[] potionList;
 
 
-    void Start()
+    public Item GetItem(string type, int index)
     {
-        
-    }
+        Item item = null;
 
+        switch(type)
+        {
+            case "HELMET":
+                item = helmetList[index];
+                break;
+            case "CHEST":
+                item = chestList[index];
+                break;
+            case "LEGS":
+                item = legList[index];
+                break;
+            case "WEAPON":
+                item = weaponList[index];
+                break;
+            case "POTION":
+                item = potionList[index];
+                break;
+        }
 
-    void Update()
-    {
-        
+        return item;
     }
 }

@@ -15,6 +15,10 @@ public class Player : MonoBehaviour
     private float ScaleDual = 0;
 
 
+    [Header("Tools")]
+    [HideInInspector] public GameObject nearItem;
+
+
     [Header("GameObjects")]
     private Rigidbody2D rb;
     private GameObject manager;
@@ -88,6 +92,15 @@ public class Player : MonoBehaviour
             {
                 attackRadius.GetComponent<Attack>().DoAttack();
             }
+
+            if (nearItem != null && Input.GetKeyDown(KeyCode.Space))
+            {
+                Item item = manager.GetComponent<ItemList>().GetItem(nearItem.GetComponent<ItemInfo>().type, nearItem.GetComponent<ItemInfo>().index);
+                manager.GetComponent<Inventory>().Pickup(item);
+                Destroy(nearItem);
+                nearItem = null;
+            }
+
         }
 
     }
