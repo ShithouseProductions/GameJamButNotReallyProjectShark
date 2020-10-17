@@ -4,15 +4,38 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [Header("Setup")]
+    public int maxHealth;
+
+    [Header("Tools")]
+    public int curHealth;
+    private int armor;
+    
+
     void Start()
+    {
+        curHealth = maxHealth;
+        //armor = GetComponent<Armor>().armor;
+    }
+
+    
+    void Update()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
+
+    public void Damage(int dmg)
     {
-        
+        // use armor to calculate blocked dmg
+        curHealth -= dmg;
+
+        if(curHealth <= 0)
+        {
+            curHealth = 0;
+            // Lose
+        } else {
+            // Update health UI
+        }
     }
 }
