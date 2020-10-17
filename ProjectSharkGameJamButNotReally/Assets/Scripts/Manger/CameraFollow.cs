@@ -8,6 +8,7 @@ public class CameraFollow : MonoBehaviour
     [Header("Setup")]
     private GameObject cam;
     private GameObject player;
+
     void Start()
     {
         cam = gameObject;

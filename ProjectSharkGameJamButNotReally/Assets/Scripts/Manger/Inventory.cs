@@ -1,18 +1,37 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    // Start is called before the first frame update
+
+    [Header("Tools")]
+    [HideInInspector] public bool inventoryVisisble = false;
+
+
+    [Header("GameObjects")]
+    private GameObject invGO;
+    
     void Start()
     {
-        
+        invGO = GameObject.Find("_Inventory");
+        invGO.SetActive(false);
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
-        
+        if(Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.I))
+        {
+            if(inventoryVisisble)
+            {
+                invGO.SetActive(false);
+            } else {
+                invGO.SetActive(true);            
+            }
+
+            inventoryVisisble = !inventoryVisisble;
+        }
     }
 }
