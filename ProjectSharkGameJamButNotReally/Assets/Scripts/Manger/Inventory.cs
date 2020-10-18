@@ -26,9 +26,12 @@ public class Inventory : MonoBehaviour
 
     public GameObject[] allDraggable = new GameObject[24];
 
+    private GameObject player;
+
     void Start()
     {
         invParent = GameObject.Find("_Inventory");
+        player = GameObject.Find("Player");
 
         for(int i = 0; i < 24; i++)
         {
@@ -133,6 +136,11 @@ public class Inventory : MonoBehaviour
 
                 invGO[i].GetComponent<InventorySlut>().currentItem.GetComponent<DraggableUI>().currentItemType = item.type;
 
+                if(item.type == "HELMET" || item.type == "CHEST" || item.type == "LEGS")
+                {
+                    //player.GetComponent<Armor>().upd
+                }
+
                 break;
             }
         }
@@ -142,6 +150,9 @@ public class Inventory : MonoBehaviour
     {
         Item[] fromArray = new Item[0];
         Item[] toArray = new Item[0];
+
+        bool affectedArmor = false;
+
         //print("fromType: " + fromType + ", fromIndex: " + fromIndex + ", toType: " + toType + ", toIne: " + toIndex);
         if(fromType == "INV")
         {
@@ -150,6 +161,7 @@ public class Inventory : MonoBehaviour
         if(fromType == "HELMET" || fromType == "CHEST" || fromType == "LEGS")
         {
             fromArray = armor;
+            affectedArmor = true;
         }
         if(fromType == "WEAPON" || fromType == "POTION")
         {
@@ -163,6 +175,7 @@ public class Inventory : MonoBehaviour
         if (toType == "HELMET" || toType == "CHEST" || toType == "LEGS")
         {
             toArray = armor;
+            affectedArmor = true;
         }
         if (toType == "WEAPON" || toType == "POTION")
         {
@@ -172,14 +185,13 @@ public class Inventory : MonoBehaviour
         Item temp = fromArray[fromIndex];
         fromArray[fromIndex] = toArray[toIndex];
         toArray[toIndex] = temp;
+
+
+        if(affectedArmor)
+        {
+            player.GetComponent<Armor>().UpdateArmor();
+        }
+        
     }
-
-
-    public void Equip(string type, int index)
-    {
-
-    }
-
-
 
 }

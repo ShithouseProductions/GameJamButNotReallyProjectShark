@@ -162,6 +162,7 @@ GameObject:
   - component: {fileID: 2420844701126825073}
   - component: {fileID: 7232324947641138677}
   - component: {fileID: 2120396775}
+  - component: {fileID: 4176144994055108950}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -329,5 +330,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c67d353ee90f59546b7a5bce8d26586d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 156
+  defaultHealth: 6
   curHealth: 0
+  heartPrefab: {fileID: 2872319497041037110, guid: 6d024461055fa9c4dbafc8b3e100be3a,
+    type: 3}
+--- !u!114 &4176144994055108950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2420844701126825077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9146e6182413b884dbd556b14e2c792d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  helmetHP: 0
+  chestHP: 0
+  legHP: 0
+  helmetSpeed: 0
+  chestSpeed: 0
+  legSpeed: 0
+  totalHP: 0
+  totalSpeed: 0

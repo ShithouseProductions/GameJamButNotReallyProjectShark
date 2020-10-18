@@ -1,12 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Net;
 using UnityEditor;
 using UnityEngine;
 
 public class Health : MonoBehaviour
 {
     [Header("Setup")]
-    public int maxHealth;
+    public int defaultHealth;
+    private int armorHealth;
+    private int maxHealth;
+
 
     [Header("Tools")]
     public int curHealth;
@@ -16,11 +20,14 @@ public class Health : MonoBehaviour
 
 
     [Header("GameObjects")]
+    public GameObject heartPrefab;
     private GameObject healthbar;
+    private GameObject[] heartList;
 
 
     void Start()
     {
+        maxHealth = defaultHealth;
         curHealth = maxHealth;
 
         if (this.gameObject == GameObject.Find("Player"))
@@ -33,11 +40,12 @@ public class Health : MonoBehaviour
         if(isPlayer)
         {
             healthbar = GameObject.Find("HealthbarParent");
+            CreateUI();
         } else {
             healthbar = transform.GetChild(2).gameObject;
         }
 
-        //armor = GetComponent<Armor>().armor;
+        GetComponent<Armor>().UpdateArmor();
     }
 
     
@@ -50,14 +58,24 @@ public class Health : MonoBehaviour
     }
 
 
+    public void UpdateArmor(int armor)
+    {
+        armorHealth = armor;
+
+        maxHealth = defaultHealth + armorHealth;
+
+        if(curHealth > maxHealth)
+        {
+            curHealth = maxHealth;
+        }
+
+    }
 
     public void Damage(int dmg)
     {
         if(cooldown <= 0)
         {
             cooldown = 0.75f;
-            print("Health.cs: health lost");
-            // use armor to calculate blocked dmg
             curHealth -= dmg;
             StartCoroutine(Flash());
 
@@ -85,8 +103,22 @@ public class Health : MonoBehaviour
     }
 
 
-    private void SetupUI()
+    private void CreateUI()
     {
+        heartList = new GameObject[maxHealth / 2];
+
+        for(int i = healthbar.transform.childCount - 1; i >= 0; i--)
+        {
+            Destroy(healthbar.transform.GetChild(i).gameObject);
+        }
+
+        for(int i = 0; i < maxHealth/2; i++)
+        {
+            GameObject temp = Instantiate(heartPrefab, new Vector2(0, 0), Quaternion.identity, healthbar.transform);
+            temp.GetComponent<RectTransform>().anchoredPosition = new Vector2(30 + i * 48, -22.5f);
+
+            heartList[i] = temp;
+        }
 
     }
 

@@ -1,16 +1,7 @@
 fileFormatVersion: 2
-guid: b1084fc18a6743a4198740a7a61642c2
+guid: 87879bf169548614e88ab7dd6e33841f
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: -1763650144924542909
-    second: HealthBar_64_0
-  - first:
-      213: 6387442756279549533
-    second: HealthBar_64_1
-  - first:
-      213: -1578735038217316147
-    second: HealthBar_64_2
+  internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -40,7 +31,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: -1
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -49,7 +40,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -130,70 +121,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: HealthBar_64_0
-      rect:
-        serializedVersion: 2
-        x: 13
-        y: 51
-        width: 29
-        height: 29
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 348d4b399814687e0800000000000000
-      internalID: -1763650144924542909
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: HealthBar_64_1
-      rect:
-        serializedVersion: 2
-        x: 51
-        y: 51
-        width: 29
-        height: 29
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d5e3f2f3851c4a850800000000000000
-      internalID: 6387442756279549533
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: HealthBar_64_2
-      rect:
-        serializedVersion: 2
-        x: 89
-        y: 51
-        width: 29
-        height: 29
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: dc81894e8d4371ae0800000000000000
-      internalID: -1578735038217316147
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
