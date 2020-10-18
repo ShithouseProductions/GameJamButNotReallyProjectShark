@@ -450,8 +450,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c67d353ee90f59546b7a5bce8d26586d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 5
+  defaultHealth: 5
   curHealth: 0
+  heartPrefab: {fileID: 0}
+  heartSprite: []
 --- !u!50 &745941608
 Rigidbody2D:
   serializedVersion: 4

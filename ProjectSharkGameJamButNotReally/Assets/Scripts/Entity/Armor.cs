@@ -26,7 +26,7 @@ public class Armor : MonoBehaviour
     {
         manager = GameObject.Find("Manager");
 
-        UpdateArmor();
+        //UpdateArmor();
     }
 
 

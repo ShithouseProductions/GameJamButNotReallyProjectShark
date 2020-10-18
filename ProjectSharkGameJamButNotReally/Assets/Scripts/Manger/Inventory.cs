@@ -35,8 +35,8 @@ public class Inventory : MonoBehaviour
 
         for(int i = 0; i < 24; i++)
         {
-            allDraggable[i] = invParent.transform.GetChild(0).transform.GetChild(i + 26).gameObject;
-            allDraggable[i].GetComponent<DraggableUI>().parentSlot = invParent.transform.GetChild(0).transform.GetChild(i + 2).gameObject;
+            allDraggable[i] = invParent.transform.GetChild(1).transform.GetChild(i + 26).gameObject;
+            allDraggable[i].GetComponent<DraggableUI>().parentSlot = invParent.transform.GetChild(1).transform.GetChild(i + 2).gameObject;
 
             if(i < 18)
             {
@@ -52,13 +52,13 @@ public class Inventory : MonoBehaviour
 
         for (int i = 0; i < 18; i++)
         {
-            invGO[i] = invParent.transform.GetChild(0).transform.GetChild(i + 2).gameObject;
+            invGO[i] = invParent.transform.GetChild(1).transform.GetChild(i + 2).gameObject;
             invGO[i].GetComponent<InventorySlut>().currentItem = allDraggable[i];
             invGO[i].GetComponent<InventorySlut>().type = "INV";
         }
         for (int i = 0; i < 3; i++)
         {
-            armorGO[i] = invParent.transform.GetChild(0).transform.GetChild(i + 20).gameObject;
+            armorGO[i] = invParent.transform.GetChild(1).transform.GetChild(i + 20).gameObject;
             armorGO[i].GetComponent<InventorySlut>().currentItem = allDraggable[i + 18];
         }
         armorGO[0].GetComponent<InventorySlut>().type = "HELMET";
@@ -67,18 +67,12 @@ public class Inventory : MonoBehaviour
 
         for (int i = 0; i < 3; i++)
         {
-            extraGO[i] = invParent.transform.GetChild(0).transform.GetChild(i + 23).gameObject;
+            extraGO[i] = invParent.transform.GetChild(1).transform.GetChild(i + 23).gameObject;
             extraGO[i].GetComponent<InventorySlut>().currentItem = allDraggable[i + 21];
         }
         extraGO[0].GetComponent<InventorySlut>().type = "WEAPON";
         extraGO[1].GetComponent<InventorySlut>().type = "POTION";
         extraGO[2].GetComponent<InventorySlut>().type = "POTION";
-
-
-        for (int i = 0; i < 18; i++)
-        {
-            //inv[i] = null;
-        }
 
 
         invParent.SetActive(false);

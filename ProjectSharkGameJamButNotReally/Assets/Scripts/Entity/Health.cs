@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Net;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
@@ -21,6 +22,7 @@ public class Health : MonoBehaviour
 
     [Header("GameObjects")]
     public GameObject heartPrefab;
+    public Sprite[] heartSprite;
     private GameObject healthbar;
     private GameObject[] heartList;
 
@@ -39,13 +41,14 @@ public class Health : MonoBehaviour
 
         if(isPlayer)
         {
-            healthbar = GameObject.Find("HealthbarParent");
-            CreateUI();
+            healthbar = GameObject.Find("HealthbarParent");      
+            GetComponent<Armor>().UpdateArmor();
+
         } else {
             healthbar = transform.GetChild(2).gameObject;
         }
 
-        GetComponent<Armor>().UpdateArmor();
+        
     }
 
     
@@ -68,6 +71,8 @@ public class Health : MonoBehaviour
         {
             curHealth = maxHealth;
         }
+
+        CreateUI();
 
     }
 
@@ -106,10 +111,10 @@ public class Health : MonoBehaviour
     private void CreateUI()
     {
         heartList = new GameObject[maxHealth / 2];
-
-        for(int i = healthbar.transform.childCount - 1; i >= 0; i--)
+        
+        for(int i = healthbar.transform.childCount; i > 0; i--)
         {
-            Destroy(healthbar.transform.GetChild(i).gameObject);
+            Destroy(healthbar.transform.GetChild(i - 1).gameObject);
         }
 
         for(int i = 0; i < maxHealth/2; i++)
@@ -120,6 +125,7 @@ public class Health : MonoBehaviour
             heartList[i] = temp;
         }
 
+        UpdateUI();
     }
 
 
@@ -127,7 +133,17 @@ public class Health : MonoBehaviour
     {
         if(isPlayer)
         {
-            // update hearts
+            for(int i = 0; i < maxHealth / 2; i++)
+            {
+                int hp = curHealth - i * 2;
+
+                if(hp != 1)
+                {
+                    hp = hp < 1 ? 0 : 2;
+                }
+
+                heartList[i].GetComponent<Image>().sprite = heartSprite[hp];
+            }
         }
 
         if(!isPlayer)
@@ -135,7 +151,7 @@ public class Health : MonoBehaviour
             float perc = (float)curHealth / maxHealth;
 
             GameObject redbar = healthbar.transform.GetChild(0).gameObject;
-
+            print(perc);
             redbar.transform.localScale = new Vector2(perc, 1);
             redbar.transform.localPosition = new Vector2((1-perc) * -0.08f, 0);
         }
