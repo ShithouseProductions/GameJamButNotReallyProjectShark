@@ -112,6 +112,9 @@ public class Player : MonoBehaviour
                     {
                         GetComponent<Health>().Heal(manager.GetComponent<Inventory>().extra[1].valueOne);
                         manager.GetComponent<Inventory>().Consume(1);
+                    } else {
+                        GetComponent<Health>().Heal(manager.GetComponent<Inventory>().extra[2].valueOne);
+                        manager.GetComponent<Inventory>().Consume(2);
                     }
                 }
             }

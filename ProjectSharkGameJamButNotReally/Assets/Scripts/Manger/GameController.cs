@@ -9,7 +9,12 @@ public class GameController : MonoBehaviour
 
     [Header("Generation")]
     public GameObject[] roomPrefab;
-    public GameObject[] enemyPrefab;
+    public GameObject leftBlock;
+    public GameObject rightBlock;
+    public GameObject topBlock;
+    public GameObject bottomBlock;
+    [Space]
+    public GameObject roomDetector;
 
 
     [Header("GameObjects")]
@@ -95,7 +100,31 @@ public class GameController : MonoBehaviour
             {
                 if(map[x, y] == 1)
                 {
-                    Instantiate(roomPrefab[0], new Vector2((8 - x) * (roomWidth - 1), (8 - y) * (roomHeight - 1)), Quaternion.identity, mapParent.transform);
+                    if((x > 0 && map[x - 1, y] == 0) || x == 0)
+                    {
+                        Instantiate(leftBlock, new Vector2((x) * (roomWidth - 1), (8 - y) * (roomHeight - 1)), Quaternion.identity, mapParent.transform);
+                    }
+                    if((x < 8 && map[x + 1, y] == 0) || x == 8)
+                    {
+                        Instantiate(rightBlock, new Vector2((x) * (roomWidth - 1), (8 - y) * (roomHeight - 1)), Quaternion.identity, mapParent.transform);
+                    }
+                    if((y > 0 && map[x, y - 1] == 0) || y == 0)
+                    {
+                        Instantiate(topBlock, new Vector2((x) * (roomWidth - 1), (8 - y) * (roomHeight - 1)), Quaternion.identity, mapParent.transform);
+                    }
+                    if((y < 8 && map[x, y+1] == 0) || y == 8)
+                    {
+                        Instantiate(bottomBlock, new Vector2((x) * (roomWidth - 1), (8 - y) * (roomHeight - 1)), Quaternion.identity, mapParent.transform);
+                    }
+
+                    Instantiate(roomPrefab[0], new Vector2(( x) * (roomWidth - 1), (8 - y) * (roomHeight - 1)), Quaternion.identity, mapParent.transform);
+                    
+                    if(x != 4 || y != 8)
+                    {
+                        print("a");
+                        Instantiate(roomDetector, new Vector2((x) * (roomWidth - 1), (8 - y) * (roomHeight - 1)), Quaternion.identity, mapParent.transform);
+                    }
+                
                 }
                 
             }

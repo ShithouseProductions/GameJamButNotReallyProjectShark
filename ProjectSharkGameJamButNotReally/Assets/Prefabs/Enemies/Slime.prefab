@@ -97,6 +97,12 @@ PrefabInstance:
       propertyPath: m_Size.x
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 3824986398067110215, guid: fd16e97dc1e526447b0102c607fef07c,
+        type: 3}
+      propertyPath: lootPrefab
+      value: 
+      objectReference: {fileID: 4714415240146167367, guid: 5ed1144df5b84204ab2bad5e2f3b550d,
+        type: 3}
     - target: {fileID: 3824986398067110220, guid: fd16e97dc1e526447b0102c607fef07c,
         type: 3}
       propertyPath: m_Name

@@ -238,7 +238,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roomPrefab:
   - {fileID: 6663193816429396986, guid: 874156ee77d972e45ae78db0f7ef44cb, type: 3}
-  enemyPrefab: []
+  leftBlock: {fileID: 8489880404003706236, guid: 68bdb0d1afffb8c438e1a4b15e711bc6,
+    type: 3}
+  rightBlock: {fileID: 7938314368244622867, guid: 5936d75b0329a2a4faa092199b068694,
+    type: 3}
+  topBlock: {fileID: 3028585915319659281, guid: dfe55b96e5c0f0348aa732fd9026057f,
+    type: 3}
+  bottomBlock: {fileID: 3502707032996092176, guid: c65cb9e0161af9745a4c268f2a77c548,
+    type: 3}
+  roomDetector: {fileID: 8267664646887721762, guid: 148f64300b87c074e89dd36686206a03,
+    type: 3}
   isPaused: 0
 --- !u!82 &1663396003
 AudioSource:

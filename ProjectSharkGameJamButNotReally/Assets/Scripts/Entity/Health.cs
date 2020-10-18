@@ -87,6 +87,11 @@ public class Health : MonoBehaviour
             if(curHealth <= 0)
             {
                 curHealth = 0;
+                if(!isPlayer)
+                {
+                    GetComponent<Enemy>().DropLoot();
+                    Destroy(gameObject);
+                }
                 Destroy(gameObject);
             }
 
