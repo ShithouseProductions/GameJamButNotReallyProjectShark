@@ -8,6 +8,7 @@ public class Inventory : MonoBehaviour
 {
 
     [Header("Tools")]
+    public Sprite transSprite;
     [HideInInspector] public bool inventoryVisible = false;
 
 
@@ -22,7 +23,7 @@ public class Inventory : MonoBehaviour
     private GameObject invParent;
     private GameObject[] invGO = new GameObject[18];
     private GameObject[] armorGO = new GameObject[3];
-    private GameObject[] extraGO = new GameObject[3];
+    [HideInInspector] public GameObject[] extraGO = new GameObject[3];
 
     public GameObject[] allDraggable = new GameObject[24];
 
@@ -188,4 +189,10 @@ public class Inventory : MonoBehaviour
         
     }
 
+    public void Consume(int index)
+    {
+        extra[index] = new Item();
+        extraGO[index].GetComponent<InventorySlut>().currentItem.GetComponent<DraggableUI>().currentItemType = "";
+        extraGO[index].GetComponent<InventorySlut>().currentItem.GetComponent<Image>().sprite = transSprite;
+    }
 }

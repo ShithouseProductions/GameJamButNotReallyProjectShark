@@ -104,6 +104,18 @@ public class Player : MonoBehaviour
                 nearItem = null;
             }
 
+            if(Input.GetKeyDown(KeyCode.H))
+            {
+                if(manager.GetComponent<Inventory>().extra[1].itemName != "" || manager.GetComponent<Inventory>().extra[2].itemName != "")
+                {
+                    if(manager.GetComponent<Inventory>().extra[1].itemName != "")
+                    {
+                        GetComponent<Health>().Heal(manager.GetComponent<Inventory>().extra[1].valueOne);
+                        manager.GetComponent<Inventory>().Consume(1);
+                    }
+                }
+            }
+
         }
 
     }

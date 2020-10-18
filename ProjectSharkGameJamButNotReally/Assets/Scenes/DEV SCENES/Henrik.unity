@@ -349,6 +349,12 @@ PrefabInstance:
       propertyPath: legList.Array.data[3].valueOne
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 84704098335201685, guid: 54fef89a8da12bd42afbfccd2e589347,
+        type: 3}
+      propertyPath: transSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: eeed914de7efb3c45874a8c5f40f1750,
+        type: 3}
     - target: {fileID: 590706887035502450, guid: 54fef89a8da12bd42afbfccd2e589347,
         type: 3}
       propertyPath: m_Name
