@@ -57,19 +57,24 @@ public class Inventory : MonoBehaviour
         {
             armorGO[i] = invParent.transform.GetChild(0).transform.GetChild(i + 20).gameObject;
             armorGO[i].GetComponent<InventorySlut>().currentItem = allDraggable[i + 18];
-            armorGO[i].GetComponent<InventorySlut>().type = "ARMOR";
         }
+        armorGO[0].GetComponent<InventorySlut>().type = "HELMET";
+        armorGO[1].GetComponent<InventorySlut>().type = "CHEST";
+        armorGO[2].GetComponent<InventorySlut>().type = "LEGS";
+
         for (int i = 0; i < 3; i++)
         {
             extraGO[i] = invParent.transform.GetChild(0).transform.GetChild(i + 23).gameObject;
             extraGO[i].GetComponent<InventorySlut>().currentItem = allDraggable[i + 21];
-            extraGO[i].GetComponent<InventorySlut>().type = "EXTRA";
         }
+        extraGO[0].GetComponent<InventorySlut>().type = "WEAPON";
+        extraGO[1].GetComponent<InventorySlut>().type = "POTION";
+        extraGO[2].GetComponent<InventorySlut>().type = "POTION";
 
 
-        for(int i = 0; i < 18; i++)
+        for (int i = 0; i < 18; i++)
         {
-            inv[i] = null;
+            //inv[i] = null;
         }
 
 
@@ -94,11 +99,11 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    public void DisableRaycastExcept(int index)
+    public void DisableRaycastExcept(DraggableUI dismiss)
     {
         for(int i = 0; i < 24; i++)
         {
-            if (i != index)
+            if (allDraggable[i] != dismiss)
             {
                 allDraggable[i].GetComponent<CanvasGroup>().blocksRaycasts = false;
             }
@@ -126,6 +131,8 @@ public class Inventory : MonoBehaviour
                 inv[i] = item;
                 invGO[i].GetComponent<InventorySlut>().currentItem.GetComponent<Image>().sprite = item.sprite;
 
+                invGO[i].GetComponent<InventorySlut>().currentItem.GetComponent<DraggableUI>().currentItemType = item.type;
+
                 break;
             }
         }
@@ -134,17 +141,17 @@ public class Inventory : MonoBehaviour
     public void MoveItem(string fromType, int fromIndex, string toType, int toIndex)
     {
         Item[] fromArray = new Item[0];
-        Item[] toArray = new Item[0]; 
-
+        Item[] toArray = new Item[0];
+        print("fromType: " + fromType + ", fromIndex: " + fromIndex + ", toType: " + toType + ", toIne: " + toIndex);
         if(fromType == "INV")
         {
             fromArray = inv;
         }
-        if(fromType == "ARMOR")
+        if(fromType == "HELMET" || fromType == "CHEST" || fromType == "LEGS")
         {
             fromArray = armor;
         }
-        if(fromType == "EXTRA")
+        if(fromType == "WEAPON" || fromType == "POTION")
         {
             fromArray = extra;
         }
@@ -153,11 +160,11 @@ public class Inventory : MonoBehaviour
         {
             toArray = inv;
         }
-        if (toType == "ARMOR")
+        if (toType == "HELMET" || toType == "CHEST" || toType == "LEGS")
         {
             toArray = armor;
         }
-        if (toType == "EXTRA")
+        if (toType == "WEAPON" || toType == "POTION")
         {
             toArray = extra;
         }

@@ -8,6 +8,7 @@ public class Item
 
     [Header("Variables")]
     public string itemName;
+    public string type;
     public Sprite sprite;
     public int price;
     public int valueOne;

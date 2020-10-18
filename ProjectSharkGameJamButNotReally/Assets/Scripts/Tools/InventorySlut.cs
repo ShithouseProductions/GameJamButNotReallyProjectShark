@@ -19,6 +19,54 @@ public class InventorySlut : MonoBehaviour, IDropHandler
     {
         if (eventData.pointerDrag != null)
         {
+            string thisSlotType = type;
+            string newSlotType = eventData.pointerDrag.GetComponent<DraggableUI>().parentSlot.GetComponent<InventorySlut>().type;
+            string thisItemType = currentItem.GetComponent<DraggableUI>().currentItemType;
+            string newItemType = eventData.pointerDrag.GetComponent<DraggableUI>().currentItemType;
+
+            //Compare new item with this slot
+            if(newItemType != "")
+            {
+                if (thisSlotType == "HELMET" && newItemType != "HELMET")
+                    return;
+
+                if (thisSlotType == "CHEST" && newItemType != "CHEST")
+                    return;
+
+                if (thisSlotType == "LEGS" && newItemType != "LEGS")
+                    return;
+
+                if (thisSlotType == "WEAPON" && newItemType != "WEAPON")
+                    return;
+
+                if (thisSlotType == "POTION" && newItemType != "POTION")
+                    return;
+            }
+
+
+            //Compare this item with other slot
+            if(thisItemType != "")
+            {
+                if (newSlotType == "HELMET" && thisItemType != "HELMET")
+                    return;
+
+                if (newSlotType == "HELMET" && thisItemType != "HELMET")
+                    return;
+
+                if (newSlotType == "LEGS" && thisItemType != "LEGS")
+                    return;
+
+                if (newSlotType == "WEAPON" && thisItemType != "WEAPON")
+                    return;
+
+                if (newSlotType == "POTION" && thisItemType != "POTION")
+                    return;
+            }
+
+
+
+
+
             //if statements to see if valid
 
             GameObject temp = currentItem;

@@ -31,6 +31,11 @@ PrefabInstance:
       propertyPath: attackAnimDelay
       value: 0.8
       objectReference: {fileID: 0}
+    - target: {fileID: 8675283689555084475, guid: a01335f8efd0e244ebfa6ed263a82d1b,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8675283690152704337, guid: a01335f8efd0e244ebfa6ed263a82d1b,
         type: 3}
       propertyPath: m_Sprite

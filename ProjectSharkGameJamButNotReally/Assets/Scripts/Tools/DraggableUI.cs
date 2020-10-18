@@ -17,6 +17,8 @@ public class DraggableUI : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
     public int index;
     private GameObject manager;
 
+    public string currentItemType;
+
     private void Awake()
     {
         manager = GameObject.Find("Manager");
@@ -29,7 +31,7 @@ public class DraggableUI : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        manager.GetComponent<Inventory>().DisableRaycastExcept(index);
+        manager.GetComponent<Inventory>().DisableRaycastExcept(this);
         cGroup.alpha = .75f;
         verifiedSlot = false;
         cGroup.blocksRaycasts = false;
