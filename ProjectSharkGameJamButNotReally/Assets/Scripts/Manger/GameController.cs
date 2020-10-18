@@ -43,8 +43,11 @@ public class GameController : MonoBehaviour
         int[,] map = new int[9, 9];
         int posX = 4;
         int posY = 8;
+        int rooms = 1;
 
-        for(int i = 0; i < 10; i++)
+        map[posX, posY] = 1;
+
+        for(; rooms < 10;)
         {
             int rand = Random.Range(1, 5);
             
@@ -77,7 +80,12 @@ public class GameController : MonoBehaviour
                 }
             }
 
-            map[posX, posY] = 1;
+            if(map[posX, posY] != 1)
+            {
+                rooms += 1;
+                map[posX, posY] = 1;
+            }
+            
         }
 
 
@@ -85,10 +93,9 @@ public class GameController : MonoBehaviour
         {
             for(int y = 0; y < 9; y++)
             {
-                //map[0, 0] = 1;
                 if(map[x, y] == 1)
                 {
-                    Instantiate(roomPrefab[0], new Vector2(x * 100, 0 + 8 - y * (roomHeight - 1)), Quaternion.identity, mapParent.transform);
+                    Instantiate(roomPrefab[0], new Vector2((8 - x) * (roomWidth - 1), (8 - y) * (roomHeight - 1)), Quaternion.identity, mapParent.transform);
                 }
                 
             }
