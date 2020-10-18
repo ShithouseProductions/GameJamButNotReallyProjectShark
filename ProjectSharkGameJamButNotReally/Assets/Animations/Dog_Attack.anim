@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Slime_Attack
+  m_Name: Dog_Attack
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,10 +20,13 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: -7299990981183138111, guid: adb3b83555670704bb1939c50f0f8328,
+      value: {fileID: 2313711220228016618, guid: 87879bf169548614e88ab7dd6e33841f,
+        type: 3}
+    - time: 0.16666667
+      value: {fileID: 657091380636090156, guid: 87879bf169548614e88ab7dd6e33841f,
         type: 3}
     - time: 0.33333334
-      value: {fileID: -426360142996132367, guid: adb3b83555670704bb1939c50f0f8328,
+      value: {fileID: 2313711220228016618, guid: 87879bf169548614e88ab7dd6e33841f,
         type: 3}
     attribute: m_Sprite
     path: 
@@ -44,8 +47,9 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: -7299990981183138111, guid: adb3b83555670704bb1939c50f0f8328, type: 3}
-    - {fileID: -426360142996132367, guid: adb3b83555670704bb1939c50f0f8328, type: 3}
+    - {fileID: 2313711220228016618, guid: 87879bf169548614e88ab7dd6e33841f, type: 3}
+    - {fileID: 657091380636090156, guid: 87879bf169548614e88ab7dd6e33841f, type: 3}
+    - {fileID: 2313711220228016618, guid: 87879bf169548614e88ab7dd6e33841f, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
