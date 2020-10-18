@@ -296,6 +296,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Velocity: 3.5
+  actualVel: 0
   velX: 0
   velY: 0
   nearItem: {fileID: 0}
@@ -334,6 +335,10 @@ MonoBehaviour:
   curHealth: 0
   heartPrefab: {fileID: 2872319497041037110, guid: 6d024461055fa9c4dbafc8b3e100be3a,
     type: 3}
+  heartSprite:
+  - {fileID: -1763650144924542909, guid: b1084fc18a6743a4198740a7a61642c2, type: 3}
+  - {fileID: 6387442756279549533, guid: b1084fc18a6743a4198740a7a61642c2, type: 3}
+  - {fileID: -1578735038217316147, guid: b1084fc18a6743a4198740a7a61642c2, type: 3}
 --- !u!114 &4176144994055108950
 MonoBehaviour:
   m_ObjectHideFlags: 0

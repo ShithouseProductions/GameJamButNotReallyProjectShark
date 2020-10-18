@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd414094a18490944a36c82d0844905c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  transSprite: {fileID: 0}
   inventoryVisible: 0
   inv:
   - itemName: 
@@ -194,6 +195,10 @@ MonoBehaviour:
     price: 0
     valueOne: 0
     valueTwo: 0
+  extraGO:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   allDraggable:
   - {fileID: 0}
   - {fileID: 0}
@@ -231,6 +236,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31a16610a54a8f346ae2e78e9da1631e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  roomPrefab:
+  - {fileID: 6663193816429396986, guid: 874156ee77d972e45ae78db0f7ef44cb, type: 3}
+  enemyPrefab: []
   isPaused: 0
 --- !u!82 &1663396003
 AudioSource:
