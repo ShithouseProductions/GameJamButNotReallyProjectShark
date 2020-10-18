@@ -129,7 +129,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocity: 2
-  lootPrefab: {fileID: 0}
+  lootPrefab: {fileID: 4714415240146167367, guid: 5ed1144df5b84204ab2bad5e2f3b550d,
+    type: 3}
 --- !u!114 &4099427796858683562
 MonoBehaviour:
   m_ObjectHideFlags: 0

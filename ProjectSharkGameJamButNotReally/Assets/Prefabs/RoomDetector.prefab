@@ -72,3 +72,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   doorlocked: {fileID: 8489880404003706236, guid: 94347cde82c2bed4f888fa3bc97f2f89,
     type: 3}
+  enemy:
+  - {fileID: 4099427796858683558, guid: 170befb71f2d238429ed1148d0145b1d, type: 3}
+  - {fileID: 8675283690152704351, guid: a01335f8efd0e244ebfa6ed263a82d1b, type: 3}
+  - {fileID: 454183880756887483, guid: f42374e1529504c4391364f6dea7bf54, type: 3}
+  - {fileID: 3824986398067110220, guid: fd16e97dc1e526447b0102c607fef07c, type: 3}
+  - {fileID: 4288785353422876036, guid: 036f5edb78b7a9d4d9030217a7bfa919, type: 3}
