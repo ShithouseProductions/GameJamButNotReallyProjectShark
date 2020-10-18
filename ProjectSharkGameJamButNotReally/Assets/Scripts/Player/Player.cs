@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
 
     [Header("Movement")]
     public float Velocity;
+    [HideInInspector] public float actualVel;
     [HideInInspector] public float velX;
     [HideInInspector] public float velY;
 
@@ -26,6 +27,8 @@ public class Player : MonoBehaviour
 
     void Start()
     {
+        actualVel = Velocity;
+
         rb = GetComponent<Rigidbody2D>();
         manager = GameObject.Find("Manager");
         attackRadius = transform.GetChild(0).gameObject;
@@ -76,7 +79,7 @@ public class Player : MonoBehaviour
             transform.localScale = new Vector2(1, scaleY);
             transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, scaleX * 90 * scaleY + ScaleDual);
 
-            rb.velocity = new Vector2(velX * Velocity, velY * Velocity);
+            rb.velocity = new Vector2(velX * actualVel, velY * actualVel);
 
         } else {
             rb.velocity = new Vector2(0, 0);

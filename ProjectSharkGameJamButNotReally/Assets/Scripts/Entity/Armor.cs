@@ -63,7 +63,8 @@ public class Armor : MonoBehaviour
         totalHP = helmetHP + chestHP + legHP;
         totalSpeed = helmetSpeed + chestSpeed + legSpeed;
 
-
+        GetComponent<Player>().actualVel = GetComponent<Player>().Velocity * (1 + totalSpeed / 100f);
+        print(GetComponent<Player>().actualVel);
         GetComponent<Health>().UpdateArmor(totalHP);
     }
 
