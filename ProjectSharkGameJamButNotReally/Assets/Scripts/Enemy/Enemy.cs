@@ -62,6 +62,8 @@ public class Enemy : MonoBehaviour
             }
 
             
+        } else {
+            GetComponent<Animator>().SetBool("isMoving", false);
         }
 
         

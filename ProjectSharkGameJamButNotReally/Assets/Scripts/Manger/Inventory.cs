@@ -12,9 +12,9 @@ public class Inventory : MonoBehaviour
 
 
     [Header("Inventory")]
-    private Item[] inv = new Item[18];
-    private Item[] armor = new Item[3];
-    private Item[] extra = new Item[3];
+    public Item[] inv = new Item[18];
+    public Item[] armor = new Item[3];
+    public Item[] extra = new Item[3];
 
 
 
@@ -24,22 +24,54 @@ public class Inventory : MonoBehaviour
     private GameObject[] armorGO = new GameObject[3];
     private GameObject[] extraGO = new GameObject[3];
 
+    public GameObject[] allDraggable = new GameObject[24];
+
     void Start()
     {
         invParent = GameObject.Find("_Inventory");
 
+        for(int i = 0; i < 24; i++)
+        {
+            allDraggable[i] = invParent.transform.GetChild(0).transform.GetChild(i + 26).gameObject;
+            allDraggable[i].GetComponent<DraggableUI>().parentSlot = invParent.transform.GetChild(0).transform.GetChild(i + 2).gameObject;
+
+            if(i < 18)
+            {
+                allDraggable[i].GetComponent<DraggableUI>().index = i;
+            } else if(i < 21)
+            {
+                allDraggable[i].GetComponent<DraggableUI>().index = i - 18;
+            } else {
+                allDraggable[i].GetComponent<DraggableUI>().index = i - 21;
+            }
+            
+        }
+
         for (int i = 0; i < 18; i++)
         {
-            invGO[i] = invParent.transform.GetChild(0).transform.GetChild(i).gameObject;
+            invGO[i] = invParent.transform.GetChild(0).transform.GetChild(i + 2).gameObject;
+            invGO[i].GetComponent<InventorySlut>().currentItem = allDraggable[i];
+            invGO[i].GetComponent<InventorySlut>().type = "INV";
         }
         for (int i = 0; i < 3; i++)
         {
-            armorGO[i] = invParent.transform.GetChild(1).transform.GetChild(i).gameObject;
+            armorGO[i] = invParent.transform.GetChild(0).transform.GetChild(i + 20).gameObject;
+            armorGO[i].GetComponent<InventorySlut>().currentItem = allDraggable[i + 18];
+            armorGO[i].GetComponent<InventorySlut>().type = "ARMOR";
         }
         for (int i = 0; i < 3; i++)
         {
-            extraGO[i] = invParent.transform.GetChild(2).transform.GetChild(i).gameObject;
+            extraGO[i] = invParent.transform.GetChild(0).transform.GetChild(i + 23).gameObject;
+            extraGO[i].GetComponent<InventorySlut>().currentItem = allDraggable[i + 21];
+            extraGO[i].GetComponent<InventorySlut>().type = "EXTRA";
         }
+
+
+        for(int i = 0; i < 18; i++)
+        {
+            inv[i] = null;
+        }
+
 
         invParent.SetActive(false);
     }
@@ -62,21 +94,77 @@ public class Inventory : MonoBehaviour
         }
     }
 
+    public void DisableRaycastExcept(int index)
+    {
+        for(int i = 0; i < 24; i++)
+        {
+            if (i != index)
+            {
+                allDraggable[i].GetComponent<CanvasGroup>().blocksRaycasts = false;
+            }
+        }
+    }
+
+    public void EnableRaycast()
+    {
+        for (int i = 0; i < 24; i++)
+        {
+
+            allDraggable[i].GetComponent<CanvasGroup>().blocksRaycasts = true;
+
+        }
+    }
+
 
     public void Pickup(Item item)
     {
 
         for(int i = 0; i < 18; i++)
         {
-            if(inv[i] == null)
+            if(inv[i].itemName == null || inv[i].itemName == "")
             {
                 inv[i] = item;
-
-                invGO[i].transform.GetChild(0).GetComponent<Image>().sprite = item.sprite;
+                invGO[i].GetComponent<InventorySlut>().currentItem.GetComponent<Image>().sprite = item.sprite;
 
                 break;
             }
         }
+    }
+
+    public void MoveItem(string fromType, int fromIndex, string toType, int toIndex)
+    {
+        Item[] fromArray = new Item[0];
+        Item[] toArray = new Item[0]; 
+
+        if(fromType == "INV")
+        {
+            fromArray = inv;
+        }
+        if(fromType == "ARMOR")
+        {
+            fromArray = armor;
+        }
+        if(fromType == "EXTRA")
+        {
+            fromArray = extra;
+        }
+
+        if(toType == "INV")
+        {
+            toArray = inv;
+        }
+        if (toType == "ARMOR")
+        {
+            toArray = armor;
+        }
+        if (toType == "EXTRA")
+        {
+            toArray = extra;
+        }
+
+        Item temp = fromArray[fromIndex];
+        fromArray[fromIndex] = toArray[toIndex];
+        toArray[toIndex] = temp;
     }
 
 
