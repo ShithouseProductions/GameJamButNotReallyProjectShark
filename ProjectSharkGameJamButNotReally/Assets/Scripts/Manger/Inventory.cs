@@ -130,11 +130,6 @@ public class Inventory : MonoBehaviour
 
                 invGO[i].GetComponent<InventorySlut>().currentItem.GetComponent<DraggableUI>().currentItemType = item.type;
 
-                if(item.type == "HELMET" || item.type == "CHEST" || item.type == "LEGS")
-                {
-                    //player.GetComponent<Armor>().upd
-                }
-
                 break;
             }
         }
@@ -184,6 +179,11 @@ public class Inventory : MonoBehaviour
         if(affectedArmor)
         {
             player.GetComponent<Armor>().UpdateArmor();
+        }
+
+        if(toType == "WEAPON" || fromType == "WEAPON")
+        {
+            player.GetComponent<Armor>().UpdateWeapon();
         }
         
     }

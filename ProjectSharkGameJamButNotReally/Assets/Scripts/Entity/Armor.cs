@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.iOS;
 using UnityEngine;
 
 public class Armor : MonoBehaviour
@@ -64,5 +65,19 @@ public class Armor : MonoBehaviour
 
 
         GetComponent<Health>().UpdateArmor(totalHP);
+    }
+
+    public void UpdateWeapon()
+    {
+        int dmg;
+
+        if(manager.GetComponent<Inventory>().extra[0] != null)
+        {
+            dmg = manager.GetComponent<Inventory>().extra[0].valueOne;
+        } else {
+            dmg = 1;
+        }
+
+        transform.GetChild(0).gameObject.GetComponent<Attack>().damage = dmg;
     }
 }
