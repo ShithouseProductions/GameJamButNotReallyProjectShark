@@ -142,7 +142,7 @@ public class Inventory : MonoBehaviour
     {
         Item[] fromArray = new Item[0];
         Item[] toArray = new Item[0];
-        print("fromType: " + fromType + ", fromIndex: " + fromIndex + ", toType: " + toType + ", toIne: " + toIndex);
+        //print("fromType: " + fromType + ", fromIndex: " + fromIndex + ", toType: " + toType + ", toIne: " + toIndex);
         if(fromType == "INV")
         {
             fromArray = inv;
