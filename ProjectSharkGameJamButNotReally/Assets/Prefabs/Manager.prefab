@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd414094a18490944a36c82d0844905c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transSprite: {fileID: 0}
+  transSprite: {fileID: 21300000, guid: eeed914de7efb3c45874a8c5f40f1750, type: 3}
   inventoryVisible: 0
   inv:
   - itemName: 
@@ -421,7 +421,7 @@ MonoBehaviour:
     type: LEGS
     sprite: {fileID: 21300000, guid: 73b47af320140c2429f7c32c55dff4fe, type: 3}
     price: 100
-    valueOne: 4
+    valueOne: 6
     valueTwo: 40
   weaponList:
   - itemName: Iron Sword
